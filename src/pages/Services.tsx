@@ -143,7 +143,7 @@ const Services = () => {
               <Button size="lg" className="bg-white text-teal-600 hover:bg-gray-100 px-10 py-6 text-xl font-semibold">
                 Book Consultation
               </Button>
-              <Button size="lg" variant="outline" className="border-2 border-white hover:bg-white px-10 py-6 text-xl font-semibold text-zinc-900">
+              <Button size="lg" variant="outline" className="border-2 border-white hover:bg-white px-10 py-6 text-xl font-semibold text-mint-600">
                 Call (555) 123-4567
               </Button>
             </div>
