@@ -10,8 +10,8 @@ const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<any>(null);
 
   const categories = [
-    { id: 'all', name: 'All Treatments', count: 25 },
-    { id: 'whitening', name: 'Teeth Whitening', count: 9 },
+    { id: 'all', name: 'All Treatments', count: 24 },
+    { id: 'whitening', name: 'Teeth Whitening', count: 8 },
     { id: 'veneers', name: 'Veneers', count: 6 },
     { id: 'implants', name: 'Dental Implants', count: 5 },
     { id: 'orthodontics', name: 'Orthodontics', count: 5 }
@@ -83,17 +83,6 @@ const Gallery = () => {
       treatment: 'Full Veneers',
       duration: '4 Weeks',
       patientAge: '35 years old'
-    },
-    {
-      id: 7,
-      category: 'whitening',
-      title: 'Smile Brightening Transformation',
-      description: 'Stunning whitening results for a radiant, confident smile',
-      beforeImage: '/lovable-uploads/image copy copy.png',
-      afterImage: '/lovable-uploads/image copy copy.png',
-      treatment: 'Professional Whitening',
-      duration: '1 Session',
-      patientAge: '29 years old'
     }
   ];
 
