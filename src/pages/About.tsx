@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -21,6 +20,15 @@ const About = () => {
     'Personalized treatment plans',
     'Insurance accepted'
   ];
+
+  const handleMeetTeam = () => {
+    // Scroll to team section or navigate to team page
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleBookAppointment = () => {
+    window.location.href = '/contact';
+  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -91,6 +99,7 @@ const About = () => {
                 <Button 
                   size="lg" 
                   className="bg-teal-600 hover:bg-teal-700 text-white px-8 py-4"
+                  onClick={handleMeetTeam}
                 >
                   Meet Our Team
                 </Button>
@@ -156,7 +165,7 @@ const About = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
             {values.map((value, index) => (
               <div key={index} className="bg-gradient-to-br from-teal-50 to-white p-8 rounded-2xl hover:shadow-lg transition-shadow duration-300">
                 <div className="flex items-center space-x-4">
@@ -167,6 +176,16 @@ const About = () => {
                 </div>
               </div>
             ))}
+          </div>
+
+          <div className="text-center">
+            <Button 
+              size="lg" 
+              className="bg-teal-600 hover:bg-teal-700 text-white px-10 py-6 text-xl font-semibold"
+              onClick={handleBookAppointment}
+            >
+              Schedule Your Visit Today
+            </Button>
           </div>
         </div>
       </section>

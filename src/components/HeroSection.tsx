@@ -1,9 +1,19 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Star, Award, Users } from 'lucide-react';
 
 const HeroSection = () => {
+  const handleBookAppointment = () => {
+    const contactSection = document.getElementById('contact-section');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handlePhoneCall = () => {
+    window.location.href = 'tel:+15551234567';
+  };
+
   return (
     <section className="relative bg-gradient-to-br from-teal-50 via-white to-mint-50 py-24 lg:py-32 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-r from-teal-600/5 to-transparent"></div>
@@ -29,6 +39,7 @@ const HeroSection = () => {
               <Button 
                 size="lg" 
                 className="bg-teal-600 hover:bg-teal-700 text-white px-10 py-6 text-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
+                onClick={handleBookAppointment}
               >
                 Book Appointment
               </Button>
@@ -36,6 +47,7 @@ const HeroSection = () => {
                 size="lg" 
                 variant="outline" 
                 className="border-2 border-teal-600 text-teal-600 hover:bg-teal-50 px-10 py-6 text-xl font-semibold transition-all duration-300"
+                onClick={handlePhoneCall}
               >
                 Call (555) 123-4567
               </Button>

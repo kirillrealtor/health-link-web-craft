@@ -1,12 +1,21 @@
-
-import React from 'react';
+import React, { useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { MapPin, Phone, Clock, Mail } from 'lucide-react';
+import { toast } from '@/components/ui/sonner';
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    phone: '',
+    email: '',
+    service: 'General Checkup',
+    message: ''
+  });
+
   const contactInfo = [
     {
       icon: MapPin,
@@ -33,6 +42,61 @@ const Contact = () => {
       color: 'bg-rose-100 text-rose-600'
     }
   ];
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Basic validation
+    if (!formData.firstName || !formData.lastName || !formData.phone || !formData.email) {
+      toast.error('Please fill in all required fields');
+      return;
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      toast.error('Please enter a valid email address');
+      return;
+    }
+
+    // Phone validation
+    const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
+    const cleanPhone = formData.phone.replace(/\D/g, '');
+    if (cleanPhone.length < 10) {
+      toast.error('Please enter a valid phone number');
+      return;
+    }
+
+    // Simulate form submission
+    toast.success('Appointment request submitted successfully! We will contact you within 24 hours to confirm your appointment.');
+    
+    // Reset form
+    setFormData({
+      firstName: '',
+      lastName: '',
+      phone: '',
+      email: '',
+      service: 'General Checkup',
+      message: ''
+    });
+  };
+
+  const handlePhoneClick = (phoneNumber: string) => {
+    const cleanNumber = phoneNumber.replace(/\D/g, '');
+    window.location.href = `tel:+1${cleanNumber}`;
+  };
+
+  const handleEmailClick = (email: string) => {
+    window.location.href = `mailto:${email}`;
+  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -70,7 +134,17 @@ const Contact = () => {
                     </h3>
                     <div className="space-y-2">
                       {item.details.map((detail, idx) => (
-                        <p key={idx} className="text-gray-600 text-lg">
+                        <p 
+                          key={idx} 
+                          className={`text-gray-600 text-lg ${
+                            item.icon === Phone ? 'cursor-pointer hover:text-teal-600' : 
+                            item.icon === Mail ? 'cursor-pointer hover:text-teal-600' : ''
+                          }`}
+                          onClick={() => {
+                            if (item.icon === Phone) handlePhoneClick(detail);
+                            if (item.icon === Mail) handleEmailClick(detail);
+                          }}
+                        >
                           {detail}
                         </p>
                       ))}
@@ -88,59 +162,80 @@ const Contact = () => {
                 <h3 className="text-3xl font-bold text-gray-900 mb-8">
                   Schedule Your Appointment
                 </h3>
-                <form className="space-y-8">
+                <form onSubmit={handleSubmit} className="space-y-8">
                   <div className="grid sm:grid-cols-2 gap-6">
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-3">
-                        First Name
+                        First Name *
                       </label>
                       <input
                         type="text"
+                        name="firstName"
+                        value={formData.firstName}
+                        onChange={handleInputChange}
                         className="w-full px-6 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-colors text-lg"
                         placeholder="John"
+                        required
                       />
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-3">
-                        Last Name
+                        Last Name *
                       </label>
                       <input
                         type="text"
+                        name="lastName"
+                        value={formData.lastName}
+                        onChange={handleInputChange}
                         className="w-full px-6 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-colors text-lg"
                         placeholder="Doe"
+                        required
                       />
                     </div>
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-3">
-                      Phone Number
+                      Phone Number *
                     </label>
                     <input
                       type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleInputChange}
                       className="w-full px-6 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-colors text-lg"
                       placeholder="(555) 123-4567"
+                      required
                     />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-3">
-                      Email Address
+                      Email Address *
                     </label>
                     <input
                       type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
                       className="w-full px-6 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-colors text-lg"
                       placeholder="john@example.com"
+                      required
                     />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-3">
                       Preferred Service
                     </label>
-                    <select className="w-full px-6 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-colors text-lg">
-                      <option>General Checkup</option>
-                      <option>Teeth Cleaning</option>
-                      <option>Cosmetic Dentistry</option>
-                      <option>Dental Implants</option>
-                      <option>Emergency Care</option>
+                    <select 
+                      name="service"
+                      value={formData.service}
+                      onChange={handleInputChange}
+                      className="w-full px-6 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-colors text-lg"
+                    >
+                      <option value="General Checkup">General Checkup</option>
+                      <option value="Teeth Cleaning">Teeth Cleaning</option>
+                      <option value="Cosmetic Dentistry">Cosmetic Dentistry</option>
+                      <option value="Dental Implants">Dental Implants</option>
+                      <option value="Emergency Care">Emergency Care</option>
                     </select>
                   </div>
                   <div>
@@ -148,6 +243,9 @@ const Contact = () => {
                       Message (Optional)
                     </label>
                     <textarea
+                      name="message"
+                      value={formData.message}
+                      onChange={handleInputChange}
                       rows={4}
                       className="w-full px-6 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-colors text-lg"
                       placeholder="Tell us about your dental needs..."

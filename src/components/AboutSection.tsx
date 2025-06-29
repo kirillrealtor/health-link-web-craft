@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { CheckCircle, Award, Users, Clock } from 'lucide-react';
@@ -16,6 +15,10 @@ const AboutSection = () => {
     'Routine and emergency services', 
     'Direct and consultancy services'
   ];
+
+  const handleAboutDentist = () => {
+    window.location.href = '/about';
+  };
 
   return (
     <section className="py-24 lg:py-32 bg-white">
@@ -49,6 +52,7 @@ const AboutSection = () => {
               <Button 
                 size="lg" 
                 className="bg-teal-600 hover:bg-teal-700 text-white px-8 py-4 text-lg"
+                onClick={handleAboutDentist}
               >
                 About Our Dentist
               </Button>

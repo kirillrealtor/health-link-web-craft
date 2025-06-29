@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -39,6 +38,22 @@ const ServicesSection = () => {
       image: '/lovable-uploads/acc4199a-19da-4487-9ca4-850259a7e184.png'
     }
   ];
+
+  const handleBookAppointment = () => {
+    const contactSection = document.getElementById('contact-section');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleViewAllServices = () => {
+    window.location.href = '/services';
+  };
+
+  const handleLearnMore = (serviceTitle: string) => {
+    // Navigate to services page with specific service highlighted
+    window.location.href = `/services#${serviceTitle.toLowerCase().replace(/\s+/g, '-')}`;
+  };
 
   return (
     <section className="py-24 lg:py-32 bg-gray-50">
@@ -88,6 +103,7 @@ const ServicesSection = () => {
                     <Button 
                       variant="outline" 
                       className="border-teal-200 text-teal-600 hover:bg-teal-50 hover:border-teal-300 transition-all duration-300"
+                      onClick={() => handleLearnMore(service.title)}
                     >
                       Learn More
                     </Button>
@@ -113,6 +129,7 @@ const ServicesSection = () => {
                 <Button 
                   size="lg" 
                   className="bg-teal-600 hover:bg-teal-700 text-white px-8 py-4 text-lg"
+                  onClick={handleViewAllServices}
                 >
                   Explore Our Technology
                 </Button>
@@ -133,6 +150,7 @@ const ServicesSection = () => {
           <Button 
             size="lg" 
             className="bg-teal-600 hover:bg-teal-700 text-white px-10 py-6 text-xl font-semibold"
+            onClick={handleViewAllServices}
           >
             View All Services
           </Button>

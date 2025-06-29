@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Menu, X, Phone, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -14,6 +13,22 @@ const Header = () => {
     { name: 'Contact', href: '/contact' },
   ];
 
+  const handleBookAppointment = () => {
+    // Scroll to contact form on homepage or navigate to contact page
+    if (window.location.pathname === '/') {
+      const contactSection = document.getElementById('contact-section');
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      window.location.href = '/contact';
+    }
+  };
+
+  const handlePhoneCall = () => {
+    window.location.href = 'tel:+15551234567';
+  };
+
   return (
     <header className="bg-white shadow-sm sticky top-0 z-50">
       {/* Top bar */}
@@ -21,7 +36,7 @@ const Header = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center text-sm">
             <div className="flex items-center space-x-6">
-              <div className="flex items-center">
+              <div className="flex items-center cursor-pointer" onClick={handlePhoneCall}>
                 <Phone className="h-4 w-4 mr-2" />
                 <span>(555) 123-4567</span>
               </div>
@@ -68,7 +83,10 @@ const Header = () => {
           </div>
 
           <div className="hidden md:block">
-            <Button className="bg-teal-600 hover:bg-teal-700 text-white">
+            <Button 
+              className="bg-teal-600 hover:bg-teal-700 text-white"
+              onClick={handleBookAppointment}
+            >
               Book Appointment
             </Button>
           </div>
@@ -105,7 +123,13 @@ const Header = () => {
                 </NavLink>
               ))}
               <div className="px-3 py-2">
-                <Button className="w-full bg-teal-600 hover:bg-teal-700 text-white">
+                <Button 
+                  className="w-full bg-teal-600 hover:bg-teal-700 text-white"
+                  onClick={() => {
+                    handleBookAppointment();
+                    setIsMenuOpen(false);
+                  }}
+                >
                   Book Appointment
                 </Button>
               </div>
