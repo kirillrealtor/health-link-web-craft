@@ -51,17 +51,17 @@ const Header = () => {
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isScrolled 
-        ? 'bg-white/95 backdrop-blur-md shadow-lg' 
-        : 'bg-transparent'
+        ? 'bg-white/98 backdrop-blur-lg shadow-xl border-b border-gray-100' 
+        : 'bg-black/20 backdrop-blur-sm shadow-2xl'
     }`}>
       {/* Top bar */}
       <div className={`transition-all duration-300 ${
         isScrolled 
-          ? 'bg-teal-600/95 backdrop-blur-md text-white py-1' 
-          : 'bg-teal-600 text-white py-2'
+          ? 'bg-teal-600 text-white py-1.5' 
+          : 'bg-teal-600/95 backdrop-blur-md text-white py-2'
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center text-sm">
+          <div className="flex justify-between items-center text-sm font-medium">
             <div className="flex items-center space-x-6">
               <div className="flex items-center cursor-pointer hover:text-teal-200 transition-colors" onClick={handlePhoneCall}>
                 <Phone className="h-4 w-4 mr-2" />
@@ -83,8 +83,10 @@ const Header = () => {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
-            <NavLink to="/" className={`text-2xl font-bold transition-colors duration-300 ${
-              isScrolled ? 'text-teal-600' : 'text-white drop-shadow-lg'
+            <NavLink to="/" className={`text-2xl font-bold transition-all duration-300 ${
+              isScrolled 
+                ? 'text-teal-600' 
+                : 'text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] font-extrabold'
             }`}>
               Doral Dental
             </NavLink>
@@ -98,14 +100,14 @@ const Header = () => {
                   key={item.name}
                   to={item.href}
                   className={({ isActive }) => {
-                    const baseClasses = `relative px-3 py-2 text-sm font-medium transition-all duration-300 group`;
+                    const baseClasses = `relative px-3 py-2 text-sm font-semibold transition-all duration-300 group`;
                     const colorClasses = isScrolled 
                       ? (isActive 
                           ? 'text-teal-600' 
-                          : 'text-gray-700 hover:text-teal-600')
+                          : 'text-gray-800 hover:text-teal-600')
                       : (isActive 
-                          ? 'text-white' 
-                          : 'text-white/90 hover:text-white drop-shadow-md');
+                          ? 'text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]' 
+                          : 'text-white/95 hover:text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] font-medium');
                     
                     return `${baseClasses} ${colorClasses}`;
                   }}
@@ -117,7 +119,7 @@ const Header = () => {
                       <span className={`absolute bottom-0 left-0 h-0.5 transition-all duration-300 group-hover:w-full ${
                         isActive ? 'w-full' : 'w-0'
                       } ${
-                        isScrolled ? 'bg-teal-600' : 'bg-white'
+                        isScrolled ? 'bg-teal-600' : 'bg-white drop-shadow-lg'
                       }`}></span>
                     </>
                   )}
@@ -128,10 +130,10 @@ const Header = () => {
 
           <div className="hidden md:block">
             <Button 
-              className={`transition-all duration-300 font-semibold ${
+              className={`transition-all duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 ${
                 isScrolled 
-                  ? 'bg-teal-600 hover:bg-teal-700 text-white shadow-lg hover:shadow-xl' 
-                  : 'bg-white text-teal-600 hover:bg-gray-100 shadow-lg hover:shadow-xl'
+                  ? 'bg-teal-600 hover:bg-teal-700 text-white border-2 border-teal-600 hover:border-teal-700' 
+                  : 'bg-white text-teal-600 hover:bg-gray-50 border-2 border-white hover:border-gray-50 drop-shadow-[0_4px_8px_rgba(0,0,0,0.3)]'
               }`}
               onClick={handleBookAppointment}
             >
@@ -143,8 +145,10 @@ const Header = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className={`transition-colors duration-300 ${
-                isScrolled ? 'text-gray-700 hover:text-teal-600' : 'text-white hover:text-teal-200'
+              className={`transition-all duration-300 p-2 rounded-lg ${
+                isScrolled 
+                  ? 'text-gray-800 hover:text-teal-600 hover:bg-gray-100' 
+                  : 'text-white hover:text-teal-200 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] hover:bg-white/10'
               }`}
             >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -155,16 +159,16 @@ const Header = () => {
         {/* Mobile menu */}
         {isMenuOpen && (
           <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white/95 backdrop-blur-md border-t shadow-lg rounded-b-lg">
+            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white/98 backdrop-blur-lg border-t border-gray-200 shadow-2xl rounded-b-2xl mx-2">
               {navigation.map((item) => (
                 <NavLink
                   key={item.name}
                   to={item.href}
                   className={({ isActive }) =>
-                    `block px-3 py-2 text-base font-medium transition-all duration-300 relative group ${
+                    `block px-4 py-3 text-base font-semibold transition-all duration-300 relative group rounded-lg ${
                       isActive
-                        ? 'text-teal-600 bg-teal-50'
-                        : 'text-gray-700 hover:text-teal-600 hover:bg-gray-50'
+                        ? 'text-teal-600 bg-teal-50 shadow-sm'
+                        : 'text-gray-800 hover:text-teal-600 hover:bg-gray-50'
                     }`
                   }
                   onClick={() => setIsMenuOpen(false)}
@@ -173,16 +177,16 @@ const Header = () => {
                     <>
                       {item.name}
                       {/* Mobile underline animation */}
-                      <span className={`absolute bottom-0 left-3 h-0.5 bg-teal-600 transition-all duration-300 group-hover:w-[calc(100%-24px)] ${
-                        isActive ? 'w-[calc(100%-24px)]' : 'w-0'
+                      <span className={`absolute bottom-1 left-4 h-0.5 bg-teal-600 transition-all duration-300 group-hover:w-[calc(100%-32px)] ${
+                        isActive ? 'w-[calc(100%-32px)]' : 'w-0'
                       }`}></span>
                     </>
                   )}
                 </NavLink>
               ))}
-              <div className="px-3 py-2">
+              <div className="px-4 py-3">
                 <Button 
-                  className="w-full bg-teal-600 hover:bg-teal-700 text-white shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="w-full bg-teal-600 hover:bg-teal-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] font-semibold"
                   onClick={() => {
                     handleBookAppointment();
                     setIsMenuOpen(false);
