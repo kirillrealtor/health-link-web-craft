@@ -82,19 +82,19 @@ const HeroSection = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-teal-900/20 to-transparent rounded-3xl"></div>
               
-              {/* Floating card with doctor info */}
+              {/* Floating card with smile-focused info */}
               <div className="absolute bottom-8 left-8 right-8 bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-xl">
                 <div className="flex items-center space-x-4">
                   <div className="w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center">
                     <Award className="h-8 w-8 text-teal-600" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900">Dr. Maria Rodriguez</h3>
-                    <p className="text-gray-600 mb-2">Lead Dentist & Practice Owner</p>
+                    <h3 className="text-xl font-bold text-gray-900">Creating Beautiful Smiles</h3>
+                    <p className="text-gray-600 mb-2">Transforming Lives, One Smile at a Time</p>
                     <div className="flex space-x-2 text-sm text-gray-500">
-                      <span>DDS, University of Miami</span>
+                      <span>✨ Whitening Specialist</span>
                       <span>•</span>
-                      <span>15+ Years Experience</span>
+                      <span>🦷 Cosmetic Expert</span>
                     </div>
                   </div>
                 </div>
