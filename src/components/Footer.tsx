@@ -4,6 +4,14 @@ import { MapPin, Phone, Mail, Clock, Facebook, Twitter, Instagram } from 'lucide
 import { NavLink } from 'react-router-dom';
 
 const Footer = () => {
+  const handleCall = () => {
+    window.location.href = 'tel:+15551234567';
+  };
+
+  const handleEmail = () => {
+    window.location.href = 'mailto:info@doraldental.com';
+  };
+
   return (
     <footer className="bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -42,20 +50,17 @@ const Footer = () => {
               <NavLink to="/contact" className="block text-gray-300 hover:text-teal-400 transition-colors">
                 Contact
               </NavLink>
-              <NavLink to="/privacy" className="block text-gray-300 hover:text-teal-400 transition-colors">
-                Privacy Policy
-              </NavLink>
             </div>
           </div>
 
           <div className="space-y-4">
             <h4 className="text-lg font-semibold">Services</h4>
             <div className="space-y-2 text-gray-300">
-              <p>General Dentistry</p>
-              <p>Cosmetic Dentistry</p>
-              <p>Dental Implants</p>
-              <p>Oral Surgery</p>
-              <p>Emergency Care</p>
+              <NavLink to="/services" className="block hover:text-teal-400 transition-colors">General Dentistry</NavLink>
+              <NavLink to="/services" className="block hover:text-teal-400 transition-colors">Cosmetic Dentistry</NavLink>
+              <NavLink to="/services" className="block hover:text-teal-400 transition-colors">Dental Implants</NavLink>
+              <NavLink to="/services" className="block hover:text-teal-400 transition-colors">Oral Surgery</NavLink>
+              <NavLink to="/services" className="block hover:text-teal-400 transition-colors">Emergency Care</NavLink>
             </div>
           </div>
 
@@ -66,13 +71,13 @@ const Footer = () => {
                 <MapPin className="h-5 w-5 text-teal-400 flex-shrink-0" />
                 <span className="text-gray-300">123 Health Street, Wellness City, WC 12345</span>
               </div>
-              <div className="flex items-center space-x-3">
+              <div className="flex items-center space-x-3 cursor-pointer" onClick={handleCall}>
                 <Phone className="h-5 w-5 text-teal-400 flex-shrink-0" />
-                <span className="text-gray-300">(555) 123-4567</span>
+                <span className="text-gray-300 hover:text-teal-400 transition-colors">(555) 123-4567</span>
               </div>
-              <div className="flex items-center space-x-3">
+              <div className="flex items-center space-x-3 cursor-pointer" onClick={handleEmail}>
                 <Mail className="h-5 w-5 text-teal-400 flex-shrink-0" />
-                <span className="text-gray-300">info@doraldental.com</span>
+                <span className="text-gray-300 hover:text-teal-400 transition-colors">info@doraldental.com</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Clock className="h-5 w-5 text-teal-400 flex-shrink-0" />
@@ -91,12 +96,12 @@ const Footer = () => {
               <NavLink to="/privacy" className="hover:text-teal-400 transition-colors">
                 Privacy Policy
               </NavLink>
-              <a href="#" className="hover:text-teal-400 transition-colors">
+              <NavLink to="/terms" className="hover:text-teal-400 transition-colors">
                 Terms of Service
-              </a>
-              <a href="#" className="hover:text-teal-400 transition-colors">
+              </NavLink>
+              <NavLink to="/hipaa" className="hover:text-teal-400 transition-colors">
                 HIPAA Notice
-              </a>
+              </NavLink>
             </div>
           </div>
         </div>

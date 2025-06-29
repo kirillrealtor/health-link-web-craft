@@ -1,11 +1,20 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Menu, X, Phone, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { NavLink } from 'react-router-dom';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const navigation = [
     { name: 'Home', href: '/' },
@@ -14,14 +23,29 @@ const Header = () => {
     { name: 'Contact', href: '/contact' },
   ];
 
+  const handleBookAppointment = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleCall = () => {
+    window.location.href = 'tel:+15551234567';
+  };
+
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-50">
+    <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+      isScrolled ? 'bg-white/95 backdrop-blur-md shadow-sm' : 'bg-transparent'
+    }`}>
       {/* Top bar */}
-      <div className="bg-teal-600 text-white py-2">
+      <div className={`bg-teal-600 text-white py-2 transition-all duration-300 ${
+        isScrolled ? 'h-0 overflow-hidden opacity-0' : 'h-auto opacity-100'
+      }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center text-sm">
             <div className="flex items-center space-x-6">
-              <div className="flex items-center">
+              <div className="flex items-center cursor-pointer" onClick={handleCall}>
                 <Phone className="h-4 w-4 mr-2" />
                 <span>(555) 123-4567</span>
               </div>
@@ -41,7 +65,9 @@ const Header = () => {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
-            <NavLink to="/" className="text-2xl font-bold text-teal-600">
+            <NavLink to="/" className={`text-2xl font-bold transition-colors ${
+              isScrolled ? 'text-teal-600' : 'text-white'
+            }`}>
               Doral Dental
             </NavLink>
           </div>
@@ -57,7 +83,9 @@ const Header = () => {
                     `px-3 py-2 text-sm font-medium transition-colors duration-200 ${
                       isActive
                         ? 'text-teal-600 border-b-2 border-teal-600'
-                        : 'text-gray-700 hover:text-teal-600'
+                        : isScrolled 
+                        ? 'text-gray-700 hover:text-teal-600'
+                        : 'text-white hover:text-teal-200'
                     }`
                   }
                 >
@@ -68,7 +96,10 @@ const Header = () => {
           </div>
 
           <div className="hidden md:block">
-            <Button className="bg-teal-600 hover:bg-teal-700 text-white">
+            <Button 
+              onClick={handleBookAppointment}
+              className="bg-teal-600 hover:bg-teal-700 text-white"
+            >
               Book Appointment
             </Button>
           </div>
@@ -77,7 +108,9 @@ const Header = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-700 hover:text-teal-600 transition-colors"
+              className={`transition-colors ${
+                isScrolled ? 'text-gray-700 hover:text-teal-600' : 'text-white hover:text-teal-200'
+              }`}
             >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -87,7 +120,7 @@ const Header = () => {
         {/* Mobile menu */}
         {isMenuOpen && (
           <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
+            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white/95 backdrop-blur-md border-t">
               {navigation.map((item) => (
                 <NavLink
                   key={item.name}
@@ -105,7 +138,10 @@ const Header = () => {
                 </NavLink>
               ))}
               <div className="px-3 py-2">
-                <Button className="w-full bg-teal-600 hover:bg-teal-700 text-white">
+                <Button 
+                  onClick={handleBookAppointment}
+                  className="w-full bg-teal-600 hover:bg-teal-700 text-white"
+                >
                   Book Appointment
                 </Button>
               </div>

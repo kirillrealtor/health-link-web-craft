@@ -6,10 +6,12 @@ import ServicesSection from '@/components/ServicesSection';
 import AboutSection from '@/components/AboutSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
+import ProgressBar from '@/components/ProgressBar';
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-white">
+      <ProgressBar />
       <Header />
       <HeroSection />
       <ServicesSection />
