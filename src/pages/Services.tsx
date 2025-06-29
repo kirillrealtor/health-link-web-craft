@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -54,7 +53,7 @@ const Services = () => {
       icon: Clock,
       color: 'bg-red-100 text-red-600',
       features: ['24/7 Emergency Line', 'Same-Day Appointments', 'Pain Relief', 'Trauma Care'],
-      image: '/lovable-uploads/ace2a899-3f89-4035-83d1-b517ea900005.png'
+      image: '/lovable-uploads/acc4199a-19da-4487-9ca4-850259a7e184.png'
     }
   ];
 

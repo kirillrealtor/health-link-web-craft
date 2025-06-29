@@ -6,6 +6,7 @@ import ServicesSection from '@/components/ServicesSection';
 import AboutSection from '@/components/AboutSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
+import SideProgressBar from '@/components/SideProgressBar';
 
 const Index = () => {
   return (
@@ -16,6 +17,7 @@ const Index = () => {
       <AboutSection />
       <ContactSection />
       <Footer />
+      <SideProgressBar />
     </div>
   );
 };
