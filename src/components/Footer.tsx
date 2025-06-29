@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { MapPin, Phone, Mail, Clock, Facebook, Twitter, Instagram } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
@@ -35,6 +34,9 @@ const Footer = () => {
               </NavLink>
               <NavLink to="/services" className="block text-gray-300 hover:text-teal-400 transition-colors">
                 Services
+              </NavLink>
+              <NavLink to="/gallery" className="block text-gray-300 hover:text-teal-400 transition-colors">
+                Gallery
               </NavLink>
               <NavLink to="/about" className="block text-gray-300 hover:text-teal-400 transition-colors">
                 About Us
