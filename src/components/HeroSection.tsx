@@ -11,7 +11,11 @@ const HeroSection = () => {
   };
 
   const handlePhoneCall = () => {
-    window.location.href = 'tel:+15551234567';
+    // Navigate to contact form instead of opening phone dialer
+    const contactSection = document.getElementById('contact-section');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
@@ -49,7 +53,7 @@ const HeroSection = () => {
                 className="border-2 border-teal-600 text-teal-600 hover:bg-teal-50 px-10 py-6 text-xl font-semibold transition-all duration-300"
                 onClick={handlePhoneCall}
               >
-                Call (555) 123-4567
+                Contact Us
               </Button>
             </div>
 

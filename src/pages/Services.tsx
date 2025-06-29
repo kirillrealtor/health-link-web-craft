@@ -62,7 +62,8 @@ const Services = () => {
   };
 
   const handlePhoneCall = () => {
-    window.location.href = 'tel:+15551234567';
+    // Navigate to contact page instead of opening phone dialer
+    window.location.href = '/contact';
   };
 
   return (
@@ -191,7 +192,7 @@ const Services = () => {
                 className="border-2 border-white text-white hover:bg-white hover:text-teal-600 px-10 py-6 text-xl font-semibold"
                 onClick={handlePhoneCall}
               >
-                Call (555) 123-4567
+                Contact Us
               </Button>
             </div>
           </div>

@@ -26,7 +26,15 @@ const Header = () => {
   };
 
   const handlePhoneCall = () => {
-    window.location.href = 'tel:+15551234567';
+    // Navigate to contact form instead of opening phone dialer
+    if (window.location.pathname === '/') {
+      const contactSection = document.getElementById('contact-section');
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      window.location.href = '/contact';
+    }
   };
 
   return (
