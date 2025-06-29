@@ -189,7 +189,7 @@ const Services = () => {
               <Button 
                 size="lg" 
                 variant="outline" 
-                className="border-2 border-white text-white hover:bg-white hover:text-teal-600 px-10 py-6 text-xl font-semibold"
+                className="border-2 border-white text-white hover:bg-white hover:text-teal-600 px-10 py-6 text-xl font-semibold bg-transparent"
                 onClick={handlePhoneCall}
               >
                 Contact Us
