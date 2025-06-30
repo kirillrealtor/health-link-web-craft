@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -13,6 +14,7 @@ const Services = () => {
       title: 'General Dentistry',
       description: 'Comprehensive care for your entire family, including check-ups, cleanings, and fillings.',
       icon: Users,
+      image: '/lovable-uploads/580c2c7d-9a53-4f6f-b600-50b7de99a86a.png',
       details: [
         'Regular check-ups and cleanings',
         'Fillings and cavity treatment',
@@ -24,6 +26,7 @@ const Services = () => {
       title: 'Cosmetic Dentistry',
       description: 'Enhance your smile with our range of cosmetic services, including whitening, veneers, and smile makeovers.',
       icon: Star,
+      image: '/lovable-uploads/580c2c7d-9a53-4f6f-b600-50b7de99a86a.png',
       details: [
         'Teeth whitening',
         'Porcelain veneers',
@@ -35,6 +38,7 @@ const Services = () => {
       title: 'Dental Implants',
       description: 'Permanent solutions for missing teeth, restoring your smile and confidence.',
       icon: Award,
+      image: '/lovable-uploads/8d904085-2c83-409d-83d0-a93b9c8d43af.png',
       details: [
         'Single tooth implants',
         'Multiple teeth implants',
@@ -46,6 +50,7 @@ const Services = () => {
       title: 'Orthodontics',
       description: 'Straighten your teeth with traditional braces or clear aligners for a confident smile.',
       icon: Heart,
+      image: '/lovable-uploads/8d904085-2c83-409d-83d0-a93b9c8d43af.png',
       details: [
         'Traditional braces',
         'Clear aligners',
@@ -57,6 +62,7 @@ const Services = () => {
       title: 'Oral Surgery',
       description: 'Expert surgical procedures, including extractions, root canals, and jaw surgery.',
       icon: Phone,
+      image: '/lovable-uploads/4692ee3f-0971-46ad-b360-2d96ff36b524.png',
       details: [
         'Tooth extractions',
         'Root canal therapy',
@@ -68,6 +74,7 @@ const Services = () => {
       title: 'Emergency Dental Care',
       description: 'Immediate care for dental emergencies, providing relief and solutions when you need them most.',
       icon: Calendar,
+      image: '/lovable-uploads/acc4199a-19da-4487-9ca4-850259a7e184.png',
       details: [
         'Emergency pain relief',
         'Broken tooth repair',
@@ -112,22 +119,38 @@ const Services = () => {
       <section className="py-16">
         <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <Card key={index} className="card-hover">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-xl font-semibold">
+            <Card key={index} className="card-hover overflow-hidden">
+              <div className="relative h-48 overflow-hidden">
+                <img 
+                  src={service.image} 
+                  alt={service.title}
+                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                <div className="absolute top-4 left-4 p-2 bg-white/90 rounded-full">
                   <service.icon className="w-5 h-5 text-teal-500" />
+                </div>
+              </div>
+              <CardHeader>
+                <CardTitle className="text-xl font-semibold text-gray-900">
                   {service.title}
                 </CardTitle>
                 <CardDescription className="text-gray-500">{service.description}</CardDescription>
               </CardHeader>
               <CardContent>
-                <ul className="list-disc pl-5 text-gray-600">
+                <ul className="list-disc pl-5 text-gray-600 mb-4">
                   {service.details.map((detail, i) => (
                     <li key={i} className="mb-1">
                       {detail}
                     </li>
                   ))}
                 </ul>
+                <Button 
+                  variant="outline" 
+                  className="border-teal-200 text-teal-600 hover:bg-teal-50 hover:border-teal-300 transition-all duration-300"
+                >
+                  Learn More
+                </Button>
               </CardContent>
             </Card>
           ))}
