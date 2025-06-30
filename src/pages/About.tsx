@@ -1,6 +1,8 @@
 import React from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import SideProgressBar from '@/components/SideProgressBar';
+import Chatbot from '@/components/Chatbot';
 import { Button } from '@/components/ui/button';
 import { CheckCircle, Award, Users, Clock, Heart, Star } from 'lucide-react';
 
@@ -191,6 +193,8 @@ const About = () => {
       </section>
 
       <Footer />
+      <SideProgressBar />
+      <Chatbot />
     </div>
   );
 };
