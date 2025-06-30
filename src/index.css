@@ -192,6 +192,34 @@ All colors MUST be HSL.
   }
 }
 
+/* Orbital animations for chatbot tooth */
+@keyframes orbit1 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbit2 {
+  0% {
+    transform: rotate(0deg) rotateX(60deg);
+  }
+  100% {
+    transform: rotate(360deg) rotateX(60deg);
+  }
+}
+
+@keyframes orbit3 {
+  0% {
+    transform: rotate(0deg) rotateY(45deg);
+  }
+  100% {
+    transform: rotate(360deg) rotateY(45deg);
+  }
+}
+
 /* Utility classes for animations */
 .animate-fade-in-up {
   animation: fadeInUp 0.6s ease-out;

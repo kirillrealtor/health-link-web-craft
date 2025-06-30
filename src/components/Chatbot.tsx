@@ -109,50 +109,66 @@ const Chatbot = () => {
 
   return (
     <>
-      {/* Floating Chatbot Button with 3D Tooth and Waves */}
+      {/* Floating 3D Tooth Chatbot Button */}
       <div className="fixed bottom-6 right-6 z-50">
         <div 
-          className={`relative transition-all duration-300 ${isOpen ? 'scale-95' : 'scale-100 hover:scale-110'}`}
+          className={`relative transition-all duration-300 ${isOpen ? 'scale-95' : 'scale-100 hover:scale-105'}`}
           onClick={() => setIsOpen(!isOpen)}
         >
-          {/* Animated Waves */}
-          <div className="absolute inset-0 animate-ping">
-            <div className="w-16 h-16 rounded-full bg-teal-400 opacity-20"></div>
-          </div>
-          <div className="absolute inset-0 animate-pulse" style={{ animationDelay: '0.5s' }}>
-            <div className="w-16 h-16 rounded-full bg-teal-300 opacity-30"></div>
-          </div>
-          <div className="absolute inset-0 animate-ping" style={{ animationDelay: '1s' }}>
-            <div className="w-16 h-16 rounded-full bg-mint-400 opacity-25"></div>
-          </div>
-          
-          {/* 3D Tooth Button */}
-          <button className="relative w-16 h-16 bg-gradient-to-br from-white via-gray-50 to-gray-100 rounded-full shadow-2xl border-2 border-teal-200 hover:border-teal-300 transition-all duration-300 hover:shadow-xl group">
-            {/* Tooth Shape */}
-            <div className="absolute inset-2 bg-gradient-to-b from-white to-gray-50 rounded-full border border-gray-200 shadow-inner group-hover:shadow-lg transition-all duration-300">
-              {/* Tooth Details */}
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                <div className="w-6 h-8 bg-gradient-to-b from-white via-gray-50 to-gray-100 rounded-t-full relative shadow-sm">
-                  {/* Tooth Crown */}
-                  <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-4 h-5 bg-white rounded-t-full border border-gray-200"></div>
-                  {/* Tooth Root */}
-                  <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2 h-3 bg-gradient-to-b from-gray-50 to-gray-100 rounded-b-full"></div>
+          {/* 3D Tooth with Orbital Waves */}
+          <div className="relative w-20 h-20 cursor-pointer">
+            {/* Orbital Ring 1 */}
+            <div className="absolute inset-0 w-20 h-20 border-2 border-teal-400 rounded-full opacity-60 animate-spin-slow" 
+                 style={{ animation: 'orbit1 8s linear infinite' }}>
+              <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-teal-500 rounded-full"></div>
+            </div>
+            
+            {/* Orbital Ring 2 */}
+            <div className="absolute inset-1 w-18 h-18 border-2 border-blue-400 rounded-full opacity-50 animate-spin-slow" 
+                 style={{ animation: 'orbit2 6s linear infinite reverse' }}>
+              <div className="absolute -top-0.5 right-0 w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
+            </div>
+            
+            {/* Orbital Ring 3 */}
+            <div className="absolute inset-2 w-16 h-16 border border-cyan-300 rounded-full opacity-40 animate-spin-slow" 
+                 style={{ animation: 'orbit3 10s linear infinite' }}>
+              <div className="absolute bottom-0 left-1/4 w-1 h-1 bg-cyan-400 rounded-full"></div>
+            </div>
+            
+            {/* 3D Tooth Center */}
+            <div className="absolute inset-4 w-12 h-12 flex items-center justify-center">
+              <div className="relative w-10 h-12 bg-gradient-to-b from-white via-gray-50 to-gray-100 rounded-t-3xl shadow-2xl transform-gpu">
+                {/* Tooth Crown */}
+                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-8 h-8 bg-gradient-to-b from-white to-gray-50 rounded-t-3xl border border-gray-200 shadow-inner"></div>
+                
+                {/* Tooth Roots */}
+                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 -translate-y-1">
+                  <div className="w-3 h-4 bg-gradient-to-b from-gray-100 to-gray-200 rounded-b-full mr-1 inline-block"></div>
+                  <div className="w-3 h-4 bg-gradient-to-b from-gray-100 to-gray-200 rounded-b-full inline-block"></div>
                 </div>
+                
+                {/* Tooth Shine Effect */}
+                <div className="absolute top-1 left-2 w-2 h-3 bg-gradient-to-br from-white to-transparent rounded-full opacity-80"></div>
+                <div className="absolute top-2 right-2 w-1 h-1 bg-white rounded-full animate-pulse"></div>
+                
+                {/* 3D Shadow */}
+                <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-8 h-2 bg-gray-300 opacity-30 rounded-full blur-sm"></div>
               </div>
             </div>
             
-            {/* Sparkle Effect */}
-            <div className="absolute top-2 right-2 w-1 h-1 bg-teal-400 rounded-full animate-pulse"></div>
-            <div className="absolute bottom-3 left-3 w-0.5 h-0.5 bg-mint-400 rounded-full animate-ping" style={{ animationDelay: '0.3s' }}></div>
-          </button>
+            {/* Floating Particles */}
+            <div className="absolute top-2 right-2 w-1 h-1 bg-teal-400 rounded-full animate-ping" style={{ animationDelay: '0s' }}></div>
+            <div className="absolute bottom-3 left-3 w-0.5 h-0.5 bg-blue-400 rounded-full animate-ping" style={{ animationDelay: '1s' }}></div>
+            <div className="absolute top-1/2 left-1 w-0.5 h-0.5 bg-cyan-400 rounded-full animate-ping" style={{ animationDelay: '2s' }}></div>
+          </div>
         </div>
       </div>
 
       {/* Chat Window */}
       {isOpen && (
-        <div className="fixed bottom-24 right-6 w-80 h-96 bg-white rounded-2xl shadow-2xl border border-gray-200 z-50 flex flex-col overflow-hidden animate-scale-in">
+        <div className="fixed bottom-28 right-6 w-80 h-96 bg-white rounded-2xl shadow-2xl border border-gray-200 z-50 flex flex-col overflow-hidden animate-scale-in">
           {/* Chat Header */}
-          <div className="bg-gradient-to-r from-teal-600 to-mint-500 p-4 text-white flex justify-between items-center">
+          <div className="bg-gradient-to-r from-teal-600 to-cyan-500 p-4 text-white flex justify-between items-center">
             <div>
               <h3 className="font-semibold text-lg">Dental Assistant</h3>
               <p className="text-teal-100 text-sm">Ask me anything about our services!</p>
@@ -192,7 +208,7 @@ const Chatbot = () => {
                   className={`max-w-xs px-3 py-2 rounded-2xl ${
                     message.isBot
                       ? 'bg-gray-100 text-gray-800'
-                      : 'bg-gradient-to-r from-teal-600 to-mint-500 text-white'
+                      : 'bg-gradient-to-r from-teal-600 to-cyan-500 text-white'
                   }`}
                 >
                   <p className="text-sm">{message.text}</p>
@@ -216,7 +232,7 @@ const Chatbot = () => {
               <Button
                 onClick={handleSendMessage}
                 size="sm"
-                className="rounded-full w-8 h-8 p-0 bg-gradient-to-r from-teal-600 to-mint-500 hover:from-teal-700 hover:to-mint-600"
+                className="rounded-full w-8 h-8 p-0 bg-gradient-to-r from-teal-600 to-cyan-500 hover:from-teal-700 hover:to-cyan-600"
               >
                 <Send size={14} />
               </Button>

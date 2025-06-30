@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -116,7 +117,7 @@ const Contact = () => {
               width="100%"
               height="450"
               style={{ border: 0 }}
-              allowFullScreen=""
+              allowFullScreen={false}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade">
             </iframe>
