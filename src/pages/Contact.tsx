@@ -106,79 +106,90 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Google Maps Section */}
-      <section className="py-12 bg-gray-50">
+      {/* Enhanced Google Maps Section - NOW MORE VISIBLE */}
+      <section className="py-16 bg-gradient-to-b from-teal-50 to-white border-t-4 border-teal-500">
         <div className="container mx-auto">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-semibold text-teal-700 mb-4">Visit Our Dental Office</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-teal-700 mb-6">🗺️ Visit Our Dental Office</h2>
+            <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
               We're conveniently located in Falls Church, Virginia. Find us easily with our interactive map below.
             </p>
-          </div>
-          
-          <div className="relative">
-            {/* Map Container with Custom Styling */}
-            <div className="relative overflow-hidden rounded-2xl shadow-2xl border-4 border-teal-100">
-              {/* Decorative Border Elements */}
-              <div className="absolute -top-2 -left-2 w-6 h-6 bg-gradient-to-br from-teal-500 to-cyan-500 rounded-full opacity-80"></div>
-              <div className="absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-br from-teal-500 to-cyan-500 rounded-full opacity-80"></div>
-              <div className="absolute -bottom-2 -left-2 w-6 h-6 bg-gradient-to-br from-teal-500 to-cyan-500 rounded-full opacity-80"></div>
-              <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-gradient-to-br from-teal-500 to-cyan-500 rounded-full opacity-80"></div>
-              
-              {/* Map Overlay with Teal Tint */}
-              <div className="absolute inset-0 bg-gradient-to-b from-teal-500/10 to-transparent pointer-events-none z-10"></div>
-              
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3105.8947!2d-77.1725!3d38.8372!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b7c6bb1a7b8c0d%3A0x1234567890abcdef!2s5501%20Seminary%20Rd%20%232112S%2C%20Falls%20Church%2C%20VA%2022041!5e0!3m2!1sen!2sus!4v1679234481904!5m2!1sen!2sus"
-                width="100%"
-                height="500"
-                style={{ 
-                  border: 0,
-                  filter: 'hue-rotate(180deg) saturate(1.2) brightness(0.9)'
-                }}
-                allowFullScreen={false}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                className="relative z-0">
-              </iframe>
-            </div>
-            
-            {/* Location Info Card Overlay */}
-            <div className="absolute bottom-6 left-6 bg-white/95 backdrop-blur-sm rounded-xl p-4 shadow-lg border border-teal-100 max-w-xs">
-              <div className="flex items-center space-x-3 mb-2">
-                <div className="w-3 h-3 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-full animate-pulse"></div>
-                <h3 className="font-semibold text-teal-700">Doral Dental</h3>
-              </div>
-              <p className="text-sm text-gray-600 mb-2">5501 Seminary Rd #2112S</p>
-              <p className="text-sm text-gray-600 mb-2">Falls Church, VA 22041</p>
-              <p className="text-xs text-teal-600 font-medium">📞 (555) 123-4567</p>
+            <div className="mt-6 inline-flex items-center bg-teal-100 text-teal-800 px-6 py-3 rounded-full">
+              <MapPin className="h-5 w-5 mr-2" />
+              <span className="font-semibold">5501 Seminary Rd #2112S, Falls Church, VA 22041</span>
             </div>
           </div>
           
-          {/* Additional Location Info */}
-          <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="text-center p-6 bg-white rounded-xl shadow-lg border border-teal-100">
-              <div className="w-12 h-12 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                <MapPin className="h-6 w-6 text-white" />
+          <div className="relative max-w-6xl mx-auto">
+            {/* Enhanced Map Container */}
+            <div className="relative overflow-hidden rounded-3xl shadow-2xl border-8 border-white bg-white">
+              {/* Decorative Corner Elements */}
+              <div className="absolute -top-4 -left-4 w-8 h-8 bg-gradient-to-br from-teal-500 to-cyan-500 rounded-full opacity-90 animate-pulse"></div>
+              <div className="absolute -top-4 -right-4 w-8 h-8 bg-gradient-to-br from-teal-500 to-cyan-500 rounded-full opacity-90 animate-pulse" style={{ animationDelay: '1s' }}></div>
+              <div className="absolute -bottom-4 -left-4 w-8 h-8 bg-gradient-to-br from-teal-500 to-cyan-500 rounded-full opacity-90 animate-pulse" style={{ animationDelay: '2s' }}></div>
+              <div className="absolute -bottom-4 -right-4 w-8 h-8 bg-gradient-to-br from-teal-500 to-cyan-500 rounded-full opacity-90 animate-pulse" style={{ animationDelay: '3s' }}></div>
+              
+              {/* Map with Teal Overlay */}
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-b from-teal-500/15 to-transparent pointer-events-none z-10 rounded-2xl"></div>
+                
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3105.8947372!2d-77.1725283!3d38.8372159!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b7c6bb1a7b8c0d%3A0x1234567890abcdef!2s5501%20Seminary%20Rd%20%232112S%2C%20Falls%20Church%2C%20VA%2022041!5e0!3m2!1sen!2sus!4v1679234481904!5m2!1sen!2sus"
+                  width="100%"
+                  height="500"
+                  style={{ 
+                    border: 0,
+                    filter: 'saturate(1.1) brightness(0.95) contrast(1.05)'
+                  }}
+                  allowFullScreen={false}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="relative z-0 rounded-2xl">
+                </iframe>
               </div>
-              <h3 className="font-semibold text-gray-800 mb-2">Easy to Find</h3>
-              <p className="text-sm text-gray-600">Located in the heart of Falls Church with ample parking available.</p>
             </div>
             
-            <div className="text-center p-6 bg-white rounded-xl shadow-lg border border-teal-100">
-              <div className="w-12 h-12 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Clock className="h-6 w-6 text-white" />
+            {/* Enhanced Location Info Card */}
+            <div className="absolute bottom-8 left-8 bg-white/98 backdrop-blur-md rounded-2xl p-6 shadow-2xl border-2 border-teal-200 max-w-sm">
+              <div className="flex items-center space-x-4 mb-4">
+                <div className="w-4 h-4 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-full animate-pulse"></div>
+                <h3 className="text-xl font-bold text-teal-700">Doral Dental</h3>
               </div>
-              <h3 className="font-semibold text-gray-800 mb-2">Convenient Hours</h3>
-              <p className="text-sm text-gray-600">Open Monday-Friday 8AM-6PM, Saturday 9AM-3PM for your convenience.</p>
+              <div className="space-y-2 text-gray-700">
+                <p className="font-semibold">5501 Seminary Rd #2112S</p>
+                <p className="font-semibold">Falls Church, VA 22041</p>
+                <div className="flex items-center space-x-2 pt-2">
+                  <Phone className="h-4 w-4 text-teal-600" />
+                  <p className="text-teal-600 font-semibold">(555) 123-4567</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Enhanced Location Features */}
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="text-center p-8 bg-white rounded-2xl shadow-xl border-2 border-teal-100 hover:shadow-2xl transition-all duration-300">
+              <div className="w-16 h-16 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                <MapPin className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-800 mb-3">Easy To Find</h3>
+              <p className="text-gray-600 leading-relaxed">Located in the heart of Falls Church with ample parking available for your convenience.</p>
             </div>
             
-            <div className="text-center p-6 bg-white rounded-xl shadow-lg border border-teal-100">
-              <div className="w-12 h-12 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Phone className="h-6 w-6 text-white" />
+            <div className="text-center p-8 bg-white rounded-2xl shadow-xl border-2 border-teal-100 hover:shadow-2xl transition-all duration-300">
+              <div className="w-16 h-16 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                <Clock className="h-8 w-8 text-white" />
               </div>
-              <h3 className="font-semibold text-gray-800 mb-2">Call Ahead</h3>
-              <p className="text-sm text-gray-600">Call us at (555) 123-4567 to schedule your appointment today.</p>
+              <h3 className="text-xl font-bold text-gray-800 mb-3">Convenient Hours</h3>
+              <p className="text-gray-600 leading-relaxed">Open Monday-Friday 8AM-6PM, Saturday 9AM-3PM for your convenience.</p>
+            </div>
+            
+            <div className="text-center p-8 bg-white rounded-2xl shadow-xl border-2 border-teal-100 hover:shadow-2xl transition-all duration-300">
+              <div className="w-16 h-16 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                <Phone className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-800 mb-3">Call Ahead</h3>
+              <p className="text-gray-600 leading-relaxed">Call us at (555) 123-4567 to schedule your appointment today.</p>
             </div>
           </div>
         </div>
