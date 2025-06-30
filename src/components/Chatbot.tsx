@@ -95,7 +95,7 @@ const Chatbot = () => {
     }
     
     if (lowerQuestion.includes('location') || lowerQuestion.includes('address')) {
-      return "We're conveniently located in Wellness City. You can find our exact address and directions on our contact page, or call us for detailed directions to our modern dental facility.";
+      return "We're conveniently located at 5501 Seminary Rd #2112S, Falls Church, VA 22041. You can find detailed directions on our contact page, or call us for assistance reaching our modern dental facility.";
     }
     
     return "Thank you for your question! For specific inquiries about treatments, appointments, or any dental concerns, please don't hesitate to call us at (555) 123-4567 or schedule a consultation. Our experienced team is here to help you achieve optimal oral health.";
@@ -118,48 +118,48 @@ const Chatbot = () => {
           {/* 3D Tooth with Orbital Waves */}
           <div className="relative w-20 h-20 cursor-pointer">
             {/* Orbital Ring 1 */}
-            <div className="absolute inset-0 w-20 h-20 border-2 border-teal-400 rounded-full opacity-60 animate-spin-slow" 
+            <div className="absolute inset-0 w-20 h-20 border-2 border-teal-400/70 rounded-full opacity-80 animate-spin-slow" 
                  style={{ animation: 'orbit1 8s linear infinite' }}>
-              <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-teal-500 rounded-full"></div>
+              <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-teal-500 rounded-full shadow-lg"></div>
             </div>
             
             {/* Orbital Ring 2 */}
-            <div className="absolute inset-1 w-18 h-18 border-2 border-blue-400 rounded-full opacity-50 animate-spin-slow" 
+            <div className="absolute inset-1 w-18 h-18 border-2 border-cyan-400/60 rounded-full opacity-70 animate-spin-slow" 
                  style={{ animation: 'orbit2 6s linear infinite reverse' }}>
-              <div className="absolute -top-0.5 right-0 w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
+              <div className="absolute -top-0.5 right-0 w-1.5 h-1.5 bg-cyan-500 rounded-full shadow-lg"></div>
             </div>
             
             {/* Orbital Ring 3 */}
-            <div className="absolute inset-2 w-16 h-16 border border-cyan-300 rounded-full opacity-40 animate-spin-slow" 
+            <div className="absolute inset-2 w-16 h-16 border border-mint-300/50 rounded-full opacity-60 animate-spin-slow" 
                  style={{ animation: 'orbit3 10s linear infinite' }}>
-              <div className="absolute bottom-0 left-1/4 w-1 h-1 bg-cyan-400 rounded-full"></div>
+              <div className="absolute bottom-0 left-1/4 w-1 h-1 bg-mint-400 rounded-full shadow-lg"></div>
             </div>
             
             {/* 3D Tooth Center */}
-            <div className="absolute inset-4 w-12 h-12 flex items-center justify-center">
-              <div className="relative w-10 h-12 bg-gradient-to-b from-white via-gray-50 to-gray-100 rounded-t-3xl shadow-2xl transform-gpu">
-                {/* Tooth Crown */}
-                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-8 h-8 bg-gradient-to-b from-white to-gray-50 rounded-t-3xl border border-gray-200 shadow-inner"></div>
+            <div className="absolute inset-3 w-14 h-14 flex items-center justify-center">
+              <div className="relative w-12 h-14 bg-gradient-to-b from-gray-100 via-white to-gray-200 rounded-t-3xl shadow-2xl transform-gpu border border-gray-300">
+                {/* Tooth Crown - Main visible part */}
+                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-10 h-10 bg-gradient-to-b from-white to-gray-100 rounded-t-3xl border-2 border-gray-400 shadow-inner"></div>
                 
                 {/* Tooth Roots */}
                 <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 -translate-y-1">
-                  <div className="w-3 h-4 bg-gradient-to-b from-gray-100 to-gray-200 rounded-b-full mr-1 inline-block"></div>
-                  <div className="w-3 h-4 bg-gradient-to-b from-gray-100 to-gray-200 rounded-b-full inline-block"></div>
+                  <div className="w-3 h-4 bg-gradient-to-b from-gray-200 to-gray-400 rounded-b-full mr-1 inline-block border border-gray-500"></div>
+                  <div className="w-3 h-4 bg-gradient-to-b from-gray-200 to-gray-400 rounded-b-full inline-block border border-gray-500"></div>
                 </div>
                 
                 {/* Tooth Shine Effect */}
-                <div className="absolute top-1 left-2 w-2 h-3 bg-gradient-to-br from-white to-transparent rounded-full opacity-80"></div>
-                <div className="absolute top-2 right-2 w-1 h-1 bg-white rounded-full animate-pulse"></div>
+                <div className="absolute top-1 left-3 w-3 h-4 bg-gradient-to-br from-white via-gray-50 to-transparent rounded-full opacity-90"></div>
+                <div className="absolute top-2 right-3 w-1.5 h-1.5 bg-white rounded-full animate-pulse shadow-lg"></div>
                 
-                {/* 3D Shadow */}
-                <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-8 h-2 bg-gray-300 opacity-30 rounded-full blur-sm"></div>
+                {/* Enhanced 3D Shadow */}
+                <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-10 h-3 bg-gray-600 opacity-40 rounded-full blur-sm"></div>
               </div>
             </div>
             
             {/* Floating Particles */}
-            <div className="absolute top-2 right-2 w-1 h-1 bg-teal-400 rounded-full animate-ping" style={{ animationDelay: '0s' }}></div>
-            <div className="absolute bottom-3 left-3 w-0.5 h-0.5 bg-blue-400 rounded-full animate-ping" style={{ animationDelay: '1s' }}></div>
-            <div className="absolute top-1/2 left-1 w-0.5 h-0.5 bg-cyan-400 rounded-full animate-ping" style={{ animationDelay: '2s' }}></div>
+            <div className="absolute top-2 right-2 w-1.5 h-1.5 bg-teal-400 rounded-full animate-ping shadow-lg" style={{ animationDelay: '0s' }}></div>
+            <div className="absolute bottom-3 left-3 w-1 h-1 bg-cyan-400 rounded-full animate-ping shadow-lg" style={{ animationDelay: '1s' }}></div>
+            <div className="absolute top-1/2 left-1 w-0.5 h-0.5 bg-mint-400 rounded-full animate-ping shadow-lg" style={{ animationDelay: '2s' }}></div>
           </div>
         </div>
       </div>
